@@ -7,9 +7,8 @@
 #include <thread>
 #include <iomanip>
 
-#include <cv.h>
 #include <opencv2/opencv.hpp>
-#include <highgui.h>
+#include <opencv2/highgui.hpp>
 #include <eigen3/Eigen/Dense>
 #include "System.h"
 
@@ -18,8 +17,8 @@ using namespace cv;
 using namespace Eigen;
 
 const int nDelayTimes = 2;
-string sData_path = "/home/dataset/EuRoC/MH-05/mav0/";
-string sConfig_path = "../config/";
+string sData_path = "/home/ubuntu/CODE/VINS-Course/data/MH_05/mav0/";
+string sConfig_path = "/home/ubuntu/CODE/VINS-Course/config/";
 
 std::shared_ptr<System> pSystem;
 
@@ -149,14 +148,14 @@ void DrawIMGandGLinMainThrd(){
 
 int main(int argc, char **argv)
 {
-	if(argc != 3)
-	{
-		cerr << "./run_euroc PATH_TO_FOLDER/MH-05/mav0 PATH_TO_CONFIG/config \n" 
-			<< "For example: ./run_euroc /home/stevencui/dataset/EuRoC/MH-05/mav0/ ../config/"<< endl;
-		return -1;
-	}
-	sData_path = argv[1];
-	sConfig_path = argv[2];
+	// if(argc != 3)
+	// {
+	// 	cerr << "./run_euroc PATH_TO_FOLDER/MH-05/mav0 PATH_TO_CONFIG/config \n" 
+	// 		<< "For example: ./run_euroc /home/stevencui/dataset/EuRoC/MH-05/mav0/ ../config/"<< endl;
+	// 	return -1;
+	// }
+	// sData_path = argv[1];
+	// sConfig_path = argv[2];
 
 	pSystem.reset(new System(sConfig_path));
 	
